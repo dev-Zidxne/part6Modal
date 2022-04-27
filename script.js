@@ -1,5 +1,7 @@
 'use strict';
 
+//Working with classes
+
 const modal = document.querySelector('.modal');
 
 const overlay = document.querySelector('.overlay');
@@ -9,7 +11,6 @@ const btnsOpenModal = document.querySelectorAll('.show-modal');
 console.log(btnsOpenModal);
 
 const openModal = function () {
-  console.log('Button clicked');
   modal.classList.remove('hidden');
   overlay.classList.remove('hidden');
 };
@@ -25,3 +26,13 @@ for (let i = 0; i < btnsOpenModal.length; i++)
 btnCloseModal.addEventListener('click', closeModal);
 
 overlay.addEventListener('click', closeModal);
+
+//Handling an "Esc" Keypress Event
+
+document.addEventListener('keydown', function (e) {
+  console.log(e.key);
+
+  if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+    closeModal();
+  }
+});
